@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// import external modules
+import Amplify from "aws-amplify";
+import awsExports from "./aws-exports";
+import React, { Suspense, lazy } from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+
+// import internal(own) modules
+import registerServiceWorker from "./registerServiceWorker";
+import { store } from "./redux/storeConfig/store";
+import ReduxToastr from 'react-redux-toastr'
+
+import "font-awesome/css/font-awesome.min.css";
+
+import "./index.scss";
+import Spinner from "./components/spinner/spinner";
+
+const LazyApp = lazy(() => import("./app/app"));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+   <Provider store={store}>
+      <Suspense fallback={<Spinner />}>
+        <LazyApp />
+        <ReduxToastr
+            timeOut={4000}
+            newestOnTop={false}
+            preventDuplicates
+            position="top-left"
+            transitionIn="fadeIn"
+            transitionOut="fadeOut"
+            progressBar
+            closeOnToastrClick/>
+      </Suspense>
+   </Provider>,
+   document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+registerServiceWorker();

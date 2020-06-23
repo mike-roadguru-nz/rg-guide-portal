@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-rgguideportalapi-dev-154457-authRole",
+            "UnauthRoleArn": "arn:aws:iam::756109657365:role/amplify-rgguideportalapi-dev-154457-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::756109657365:role/amplify-rgguideportalapi-dev-154457-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-rgguideportalapi-dev-154457-deployment",
+            "UnauthRoleName": "amplify-rgguideportalapi-dev-154457-unauthRole",
+            "StackName": "amplify-rgguideportalapi-dev-154457",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:756109657365:stack/amplify-rgguideportalapi-dev-154457/e9944880-b503-11ea-b280-068cd671fcda",
+            "AmplifyAppId": "d2zevoj5twddjv"
+        }
+    }
+}
